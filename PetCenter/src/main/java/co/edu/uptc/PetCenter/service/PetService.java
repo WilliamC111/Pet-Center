@@ -1,0 +1,1 @@
+/*Se definen todos los metodos a utilizar, es una interfaz */

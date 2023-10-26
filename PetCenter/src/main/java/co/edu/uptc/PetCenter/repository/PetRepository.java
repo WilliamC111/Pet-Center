@@ -1,0 +1,1 @@
+/**Metodo comun para todos */
