@@ -1,8 +1,8 @@
 # Pet-Center
-Aplicacion para administrar un centro de mascotas
+Aplicación para administrar un centro de mascotas
 
 Ejecute usando JDK 17 y Windows preferiblemente.
-Base de datso en Mysql. Puerto segun corresponda.
+Base de datos en Mysql. Puerto según corresponda.
 
 
 ### Karen Suarez Ramos
