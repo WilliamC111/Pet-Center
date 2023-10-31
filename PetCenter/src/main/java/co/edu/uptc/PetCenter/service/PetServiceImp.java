@@ -23,4 +23,8 @@ public class PetServiceImp implements PetService {
         }
         return null; 
     }
+    @Override
+    public Optional<Pet> getPetById(Long id){
+        return petRepository.findById(id);
+    }
 }

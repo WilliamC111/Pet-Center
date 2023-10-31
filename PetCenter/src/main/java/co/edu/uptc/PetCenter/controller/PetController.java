@@ -31,5 +31,9 @@ public class PetController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mascota no encontrada");
         }
     }
-   
+
+    @GetMapping(path = "/{id}")
+    public Optional<Pet> getPetById(@PathVariable Long id){
+        return this.petService.getPetById(id);
+    }
 }
