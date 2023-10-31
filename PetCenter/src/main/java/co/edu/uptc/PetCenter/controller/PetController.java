@@ -16,6 +16,11 @@ public class PetController {
 
     @Autowired
     private PetService petService;
+    
+    @PostMapping
+    public ResponseEntity<?> savePet(@RequestBody Pet pet) {
+        return 	ResponseEntity.status(HttpStatus.CREATED).body(petService.savePet(pet));
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<String> updatePet(@PathVariable Long id, @RequestBody Pet pet) {
