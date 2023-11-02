@@ -31,5 +31,15 @@ public class PetController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mascota no encontrada");
         }
     }
+
+    @DeleteMapping(path = "/{id}")
+    public String deletePetById(@PathVariable Long id){
+        boolean result = this.petService.deletePet(id);
+        if (result){
+            return "La mascota fue eliminada exitosamente :3";
+        }
+        return "Error, no se ha podido eliminar la mascota.";
+    }
+
    
 }

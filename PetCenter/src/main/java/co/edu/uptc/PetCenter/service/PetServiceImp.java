@@ -15,6 +15,21 @@ public class PetServiceImp implements PetService {
     private PetRepository petRepository;
 
     @Override
+    public Pet savePet(Pet pet) {
+        return petRepository.save(pet);
+    }
+
+    @Override
+    public List<Pet> getAllPets() {
+        return null;
+    }
+
+    @Override
+    public Optional<Pet> getPetById(Long id) {
+        return Optional.empty();
+    }
+
+    @Override
     public Pet updatePet(Pet pet, Long id) {
         Optional<Pet> existingPet = petRepository.findById(id);
         if (existingPet.isPresent()) {
@@ -23,4 +38,15 @@ public class PetServiceImp implements PetService {
         }
         return null; 
     }
+
+    @Override
+    public boolean deletePet(Long id){
+        try{
+            petRepository.deleteById(id);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
+
 }
