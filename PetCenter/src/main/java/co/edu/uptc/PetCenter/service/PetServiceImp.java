@@ -18,27 +18,31 @@ public class PetServiceImp implements PetService {
     public Pet updatePet(Pet pet, Long id) {
         Optional<Pet> existingPet = petRepository.findById(id);
         if (existingPet.isPresent()) {
-            pet.setId(id); 
+            pet.setId(id);
             return petRepository.save(pet);
         }
-        return null; 
+        return null;
     }
     @Override
     public Optional<Pet> getPetById(Long id){
         return petRepository.findById(id);
     }
-	@Override
-	public Pet savePet(Pet pet) {
-		return petRepository.save(pet);
-	}
-	@Override
-	public List<Pet> getAllPets() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public boolean deletePet(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+    @Override
+    public Pet savePet(Pet pet) {
+        return petRepository.save(pet);
+    }
+    @Override
+    public List<Pet> getAllPets() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    @Override
+    public boolean deletePet(Long id) {
+        try{
+            petRepository.deleteById(id);
+            return true;
+        }catch (Exception e) {
+            return false;
+        }
+    }
 }

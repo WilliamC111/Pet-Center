@@ -37,6 +37,15 @@ public class PetController {
         }
     }
 
+    @DeleteMapping(path = "/{id}")
+    public String deletePetById(@PathVariable Long id){
+        boolean result = this.petService.deletePet(id);
+        if (result){
+            return "La mascota fue eliminada exitosamente :3";
+        }
+        return "Error, no se ha podido eliminar la mascota.";
+    }
+
     @GetMapping(path = "/{id}")
     public Optional<Pet> getPetById(@PathVariable Long id){
         return this.petService.getPetById(id);
